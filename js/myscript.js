@@ -1,8 +1,10 @@
-var trackTag = document.querySelector(".albums");
+var albumTag = document.querySelector("#discography");
 
 var results = {
+  // API results here
   q: [
     {
+      // img: src="https://placekitten.com/200/200";
       name: "Nevermind",
       year: 1992,
       artist: "Nirvana",
@@ -20,18 +22,18 @@ var results = {
   ],
 };
 
-var albumList = results.q;
-console.log(albumList);
+var albumStats = results.q;
+console.log(albumStats);
 
 function renderList(albums) {
-  trackTag.innerHTML = albums.map((album) => {
+  albumTag.innerHTML = albums.map((album) => {
     var trackhtml = album.tracks
       .map((track) => `<li>${track.name}</li>`)
       .join("");
     return `
-     <div class="col-2 album">
-        <h3>${album.name}</h3>
-        <h4>${album.year}</h4>
+     <div class="cell small-4 album">
+        <h4>${album.name}</h4>
+        <h5>${album.year}</h5>
         <ul>
             ${trackhtml}
         </ul>

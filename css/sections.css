@@ -1,0 +1,30 @@
+#albums {
+  border: solid black;
+}
+
+#lyrics-section {
+  border: solid gray;
+  background: gray;
+  color: white;
+}
+
+footer {
+  border: solid black;
+  background: black;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  line-height: 50px;
+  margin-bottom: 0;
+}
+
+.album {
+  margin: auto;
+}
+
+#lyrics-text {
+  padding-left: 20%;
+  padding-right: 20%;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}

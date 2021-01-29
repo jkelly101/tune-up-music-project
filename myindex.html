@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Foundation Starter Template</title>
+    <title>Tune Up Music</title>
     <!-- <link rel="stylesheet" href="css/foundation.css" /> -->
     <!-- Compressed CSS -->
     <link
@@ -13,6 +13,7 @@
       integrity="sha256-ogmFxjqiTMnZhxCqVmcqTvjfe1Y/ec4WaRj/aQPvn+I="
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="css/sections.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link href="css/mystyle.css" rel="stylesheet" />
   </head>
@@ -31,36 +32,41 @@
               </div>
           </div>
         </div>
+      </div>
     </header>
 
-        <!-- Albums-->
-        <section id="albums">
-          <div class="container">
-            <div class="row">
-              <div class="col-lg-8 mx-auto">
-                <div class="row albums">test
-                  
-              </div>
-       
-              </div>
-        </section>
-    
-    
-        <!-- Lyrics-->
-        <section class="lyrics-section" id="lyrics">
-          <div class="container">
-            <p id="lyrics text">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore, sequi cum repellendus et quidem, exercitationem cumque dolorum autem eligendi quo voluptatum qui consequatur veniam sit dolores earum deleniti quis in voluptatibus impedit ducimus deserunt animi quibusdam eos. Doloremque voluptas quae dolorum officiis facere magnam vero placeat minima adipisci nam. Sunt?
-            </p>
+    <!-- Albums-->
+    <section id="albums">
+      <div class="grid-container">
+        <h4>Discography:</h4>
+        <div class="grid-x grid-margin-x">
+          <div class="cell large-8">
+            <div class="row" id="discography"></div>
           </div>
-         </section>   
-            
-        <!-- Footer-->
-        <footer class="footer">
-          <div class="container" id="footer-text">Copyright © Your Website 2020</div>
-        </footer>
+        </div>
+      </div>
+    </section>
 
+    <!-- Lyrics-->
+    <section class="container" id="lyrics-section">
+      <div class="container">
+        <p id="lyrics-text">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore,
+          sequi cum repellendus et quidem, exercitationem cumque dolorum autem
+          eligendi quo voluptatum qui consequatur veniam sit dolores earum
+          deleniti quis in voluptatibus impedit ducimus deserunt animi quibusdam
+          eos. Doloremque voluptas quae dolorum officiis facere magnam vero
+          placeat minima adipisci nam. Sunt?
+        </p>
+      </div>
+    </section>
 
+    <!-- Footer-->
+    <footer class="footer">
+      <div class="container" id="footer-text">
+        Copyright © Tune Up Music 2021
+      </div>
+    </footer>
 
     <!-- Compressed JavaScript -->
     <script
@@ -71,5 +77,6 @@
     <script>
       $(document).foundation();
     </script>
+    <script src="js/myscript.js"></script>
   </body>
 </html>
