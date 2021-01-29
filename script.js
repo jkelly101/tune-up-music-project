@@ -1,9 +1,11 @@
-<input type="text" id="title"> by <input type="text" id="artist">
+{/* <input type="text" id="title"> by <input type="text" id="artist">
 <button onclick="findlyrics();">Find Lyrics</button>
-<div id="output"></div>
-<script>
+<div id="output"></div> */}
+ 
     function findlyrics(){
-        var theURL = "https://api.lyrics.ovh/v1/" + document.getElementById("artist").value + "/" + document.getElementById("title").value;
+        console.log('hi');
+        // var theURL = "https://api.lyrics.ovh/v1/" + document.getElementById("search-bar").value + "/" + document.getElementById("title").value;
+        var theURL = "https://api.lyrics.ovh/v1/Michael-Jackson/Beat-It"
         $.ajax({   
             url: theURL,
             method: "GET"
@@ -12,4 +14,5 @@
            document.getElementById("output").innerHTML=response.lyrics.replace(new RegExp("\n", "g"),"<br>")
         });
 }
-</script>
+findlyrics()
+
