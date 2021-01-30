@@ -30,6 +30,7 @@
 // renderList(results);
 
 var albumTag = document.querySelector("#discography");
+var daCount = 0; 
 
 function findlyrics() {
   var theURL =
@@ -57,6 +58,9 @@ $('#search-btn').click(function(){
   var theCount = "5";
   var queryURL ="https://cors-anywhere.herokuapp.com/https://api.deezer.com/artist/" + theArtist;
   
+  // Reset API Data View
+  $("#albums").html("");
+  daCount = 0;
 
   $.ajax({
     url: queryURL,
@@ -119,7 +123,7 @@ $('#search-btn').click(function(){
   });
 });
 
-var daCount = 0; 
+
 function renderList(albums, tracks) {
     
   console.log(albums.data)
@@ -130,11 +134,10 @@ function renderList(albums, tracks) {
     albumDiv.addClass("column column-block")
 
     var albumTitle = $("<div>");
-    albumTitle.addClass("text-center")
+    albumTitle.addClass("text-center album-title")
 
     var albumRelease = $("<div>");
-    albumRelease.addClass("text-center")
-
+    albumRelease.addClass("text-center release-date")
 
     var albumImg = $("<img>");
     albumImg.addClass("float-center album-img")
@@ -152,10 +155,14 @@ function renderList(albums, tracks) {
     albumTitle.text(theTitle);
     albumRelease.text(theRelease);
 
+    var trackList = $("<ul>");
+    albumDiv.addClass("vertical menu accordion-menu")
+    
     daCount++
+
+
+  
   }
-
-
 
   // console.log(albums)
   // albumTag.innerHTML = albums.map((album) => {
