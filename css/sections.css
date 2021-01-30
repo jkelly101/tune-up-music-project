@@ -1,11 +1,13 @@
 #albums {
   border: solid black;
+  padding: 10px;
 }
 
 #lyrics-section {
   border: solid gray;
   background: gray;
   color: white;
+  padding: 20px;
 }
 
 footer {
@@ -22,9 +24,9 @@ footer {
   margin: auto;
 }
 
-#lyrics-text {
+/* #lyrics-text {
   padding-left: 20%;
   padding-right: 20%;
   padding-top: 20px;
   padding-bottom: 20px;
-}
+} */
