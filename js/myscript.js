@@ -156,12 +156,20 @@ function renderList(albums, tracks) {
     albumRelease.text(theRelease);
 
     var trackList = $("<ul>");
-    albumDiv.addClass("vertical menu accordion-menu")
-    
+    trackList.addClass("vertical menu accordion-menu")
+    trackList.attr("data-accordion-menu")
+
+    trackHeaderHolder = $("<li>");
+
+    trackHeader = $("<a>");
+    trackHeader.text("View Tracks");
+
+    $(albumDiv).append(trackList);
+    $(trackList).append(trackHeaderHolder);
+    $(trackHeaderHolder).append(trackHeader);
+
     daCount++
 
-
-  
   }
 
   // console.log(albums)
