@@ -1,3 +1,7 @@
+.hide {
+  display: none;
+}
+
 #albums {
   border: solid black;
   padding: 10px;
@@ -15,12 +19,12 @@
   font-weight: bold;
 }
 
-#album-title{
-    font-size: 20px;
+#album-title {
+  font-size: 20px;
 }
 
-#release-date{
-    font-size: 18px;
+#release-date {
+  font-size: 18px;
 }
 
 footer {
