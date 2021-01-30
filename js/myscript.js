@@ -117,26 +117,40 @@ $('#search-btn').click(function(){
 
     });
   });
-
-
 });
 
-var daCount = 0;
-  
+var daCount = 0; 
 function renderList(albums, tracks) {
-  
-  
+    
   console.log(albums.data)
-
 
     // console.log(albums.data[i].title)
  
     var albumDiv = $("<div>");
-    albumDiv.addClass("cell small-4 album")
+    albumDiv.addClass("column column-block")
+
+    var albumTitle = $("<div>");
+    albumTitle.addClass("text-center")
+
+    var albumRelease = $("<div>");
+    albumRelease.addClass("text-center")
+
+
+    var albumImg = $("<img>");
+    albumImg.addClass("float-center album-img")
+    albumImg.attr("src",albums.data[daCount].cover_medium);
+
     var theTitle = albums.data[daCount].title
+    var theRelease = albums.data[daCount].release_date
    
-    $('#discography').append(albumDiv);
-    albumDiv.text(theTitle);
+    $('#albums').append(albumDiv);
+
+    $(albumDiv).append(albumImg);
+    $(albumDiv).append(albumTitle);
+    $(albumDiv).append(albumRelease);
+
+    albumTitle.text(theTitle);
+    albumRelease.text(theRelease);
 
     daCount++
   }
