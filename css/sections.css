@@ -1,11 +1,26 @@
 #albums {
   border: solid black;
+  padding: 10px;
 }
 
 #lyrics-section {
   border: solid gray;
   background: gray;
   color: white;
+  padding: 20px;
+}
+
+#album-title,
+#release-date {
+  font-weight: bold;
+}
+
+#album-title{
+    font-size: 20px;
+}
+
+#release-date{
+    font-size: 18px;
 }
 
 footer {
@@ -20,11 +35,4 @@ footer {
 
 .album {
   margin: auto;
-}
-
-#lyrics-text {
-  padding-left: 20%;
-  padding-right: 20%;
-  padding-top: 20px;
-  padding-bottom: 20px;
 }
