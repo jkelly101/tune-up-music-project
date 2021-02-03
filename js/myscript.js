@@ -39,6 +39,7 @@ $('#search-btn').click(function(){
   var theCount = "5";
   var queryURL ="https://cors-anywhere.herokuapp.com/https://api.deezer.com/artist/" + theArtist;
   
+  console.log(queryURL)
   // Reset API Data View
   $("#albums").html("");
   daCount = 0;
