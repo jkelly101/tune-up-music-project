@@ -33,11 +33,10 @@ var albumTag = document.querySelector("#discography");
 var daCount = 0; 
 
 function findlyrics() {
-  var theURL =
-    "https://api.lyrics.ovh/v1/" +
-    document.getElementById("artist").value +
-    "/" +
-    document.getElementById("title").value;
+  
+  var theArtist = $("#search-bar").val();
+
+  var theURL ="https://api.lyrics.ovh/v1/" + document.getElementById("artist").value + "/" + document.getElementById("title").value;
 
   $.ajax({
     url: theURL,
@@ -155,18 +154,38 @@ function renderList(albums, tracks) {
     albumTitle.text(theTitle);
     albumRelease.text(theRelease);
 
-    var trackList = $("<ul>");
-    trackList.addClass("vertical menu accordion-menu")
-    trackList.attr("data-accordion-menu")
+    
+    // var trackList = $("<ul>");
+
+    var trackList = $("<div>");
+    trackList.html('<ul class="tracklist-1 vertical menu accordion-menu" data-accordion-menu ></ul>')
+
+    // trackList.addClass("vertical menu accordion-menu")
+    // trackList.attr("data-accordion-menu")
 
     trackHeaderHolder = $("<li>");
 
     trackHeader = $("<a>");
+    trackHeader.attr('id', 'Album' + daCount);
     trackHeader.text("View Tracks");
 
+    anotherList =  $("<ul>").addClass('menu vertical nested');
+    trackHeaderHolder.append(trackHeader, anotherList);
+    $('.tracklist-1').append(trackHeaderHolder)
+
+    
     $(albumDiv).append(trackList);
-    $(trackList).append(trackHeaderHolder);
-    $(trackHeaderHolder).append(trackHeader);
+    // $('.tracklist-1').append(trackHeaderHolder);
+    // $(trackHeaderHolder).append(trackHeader);
+
+    for(var i = 0; i < tracks.data.length; i ++)
+    {
+      track = $("<li>");
+      track.addClass("hidden")
+      track.text(tracks.data[i].title);
+      $(anotherList).append(track);
+    }
+
 
     daCount++
 
