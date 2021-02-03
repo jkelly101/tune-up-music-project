@@ -32,24 +32,6 @@
 var albumTag = document.querySelector("#discography");
 var daCount = 0; 
 
-function findlyrics() {
-  
-  var theArtist = $("#search-bar").val();
-
-  var theURL ="https://api.lyrics.ovh/v1/" + document.getElementById("artist").value + "/" + document.getElementById("title").value;
-
-  $.ajax({
-    url: theURL,
-    method: "GET",
-  }).then(function (response) {
-    console.log(response);
-
-    document.getElementById("output").innerHTML = response.lyrics.replace(
-      new RegExp("\n", "g"),
-      "<br>"
-    );
-  });
-}
 
 $('#search-btn').click(function(){
 
@@ -155,23 +137,23 @@ function renderList(albums, tracks) {
     albumRelease.text(theRelease);
 
     
-    // var trackList = $("<ul>");
+    var trackList = $("<ul>");
 
-    var trackList = $("<div>");
-    trackList.html('<ul class="tracklist-1 vertical menu accordion-menu" data-accordion-menu ></ul>')
+    // var trackList = $("<div>");
+    // trackList.html('<ul class="tracklist-' + daCount +  ' vertical menu accordion-menu" data-accordion-menu ></ul>')
 
-    // trackList.addClass("vertical menu accordion-menu")
-    // trackList.attr("data-accordion-menu")
-
+    trackList.addClass("vertical menu accordion-menu")
     trackHeaderHolder = $("<li>");
 
     trackHeader = $("<a>");
     trackHeader.attr('id', 'Album' + daCount);
     trackHeader.text("View Tracks");
 
-    anotherList =  $("<ul>").addClass('menu vertical nested');
-    trackHeaderHolder.append(trackHeader, anotherList);
-    $('.tracklist-1').append(trackHeaderHolder)
+    trackHeaderHolder.append(trackHeader);
+
+    // anotherList =  $("<ul>").addClass('menu vertical nested');
+    // trackHeaderHolder.append(trackHeader, anotherList);
+    // $('.tracklist-' + daCount).append(trackHeaderHolder)
 
     
     $(albumDiv).append(trackList);
@@ -181,9 +163,9 @@ function renderList(albums, tracks) {
     for(var i = 0; i < tracks.data.length; i ++)
     {
       track = $("<li>");
-      track.addClass("hidden")
+      track.addClass("hidden track-unit")
       track.text(tracks.data[i].title);
-      $(anotherList).append(track);
+      $(trackList).append(track);
     }
 
 
@@ -191,14 +173,29 @@ function renderList(albums, tracks) {
 
   }
 
-  // console.log(albums)
-  // albumTag.innerHTML = albums.map((album) => {
-  //   return `
-  //    <div class="cell small-4 album">
-  //       <h4>${album.data.id}</h4>
-  //    </div>
-  //    `;
-  // });
+
+
+  $(document).on('click', '.track-unit', function(){
+      
+      var theArtist = $("#search-bar").val();
+      var theSong = $(this).text()
+
+      var theURL ="https://api.lyrics.ovh/v1/" + theArtist + "/" + theSong;
+    
+      $.ajax({
+        url: theURL,
+        method: "GET",
+      }).then(function (response) {
+        console.log(response);
+    
+        document.getElementById("lyrics-text").innerHTML = response.lyrics.replace(
+          new RegExp("\n", "g"),
+          "<br>"
+        );
+      });
+  })
+
+
 
 
 // var results = {
