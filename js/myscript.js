@@ -37,7 +37,7 @@ $('#search-btn').click(function(){
 
   var theArtist = $("#search-bar").val();
   var theCount = "5";
-  var queryURL ="https://cors-anywhere.herokuapp.com/https://api.deezer.com/artist/" + theArtist;
+  var queryURL ="https://cors-anywhere.herokuapp.com/https://api.deezer.com/artist/" + encodeURIComponent(theArtist);
   
   console.log(queryURL)
   // Reset API Data View
@@ -143,14 +143,16 @@ function renderList(albums, tracks) {
     // var trackList = $("<div>");
     // trackList.html('<ul class="tracklist-' + daCount +  ' vertical menu accordion-menu" data-accordion-menu ></ul>')
 
-    trackList.addClass("vertical menu accordion-menu")
+    trackList.addClass("vertical menu accordion-menu album-" + daCount)
     trackHeaderHolder = $("<li>");
 
     trackHeader = $("<a>");
-    trackHeader.attr('id', 'Album' + daCount);
+    trackHeader.addClass("track-toggle")
+    trackHeader.attr('id', daCount);
     trackHeader.text("View Tracks");
 
     trackHeaderHolder.append(trackHeader);
+    $(trackList).append(trackHeaderHolder);
 
     // anotherList =  $("<ul>").addClass('menu vertical nested');
     // trackHeaderHolder.append(trackHeader, anotherList);
@@ -164,7 +166,7 @@ function renderList(albums, tracks) {
     for(var i = 0; i < tracks.data.length; i ++)
     {
       track = $("<li>");
-      track.addClass("hidden track-unit")
+      track.addClass("hidden track-unit unit-" + daCount)
       track.text(tracks.data[i].title);
       $(trackList).append(track);
     }
@@ -194,8 +196,32 @@ function renderList(albums, tracks) {
           "<br>"
         );
       });
+
+      $('html, body').animate({
+        scrollTop: $("#lyrics-section").offset().top
+      }, 1);
+
   })
 
+
+  $(document).on('click', '.track-toggle', function(){
+    
+    var albumID = this.id
+
+    if( $(this).hasClass("show"))
+    {
+      $(this).removeClass("show");
+      $(".unit-" + albumID).addClass("hidden");
+    }
+    else
+    {
+      $(this).addClass("show");
+      $(".unit-" + albumID).removeClass("hidden");
+    }
+
+   
+
+  });
 
 
 
