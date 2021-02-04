@@ -40,3 +40,8 @@ footer {
 .album {
   margin: auto;
 }
+
+.hidden
+{
+  display:none!important;
+}
