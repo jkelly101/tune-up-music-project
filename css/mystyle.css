@@ -35,8 +35,7 @@ html {
 }
 
 .top-head {
-  position: relative; 
-  
+  position: relative;   
   background-size:100% 100%; 
   height: 100vh;
   display: flex;
