@@ -1,106 +1,78 @@
-// var albumTag = document.querySelector("#discography");
-
-// var results = {
-//   // API results here
-//   q: [
-//     {
-//       // img: src="https://placekitten.com/200/200";
-//       name: "Nevermind",
-//       year: 1992,
-//       artist: "Nirvana",
-//       tracks: [
-//         {
-//           name: "Smells like teen spirit",
-//           track: 1,
-//         },
-//         {
-//           name: "Heart-shaped box",
-//           track: 2,
-//         },
-//       ],
-//     },
-//   ],
-// };
-
-// var albumStats = results.q;
-// console.log(albumStats);
-
-// 
-
-// renderList(results);
 
 var albumTag = document.querySelector("#discography");
 var daCount = 0; 
+var searches = [];
 
+renderSearch()
+
+function renderSearch() {
+    
+  var searchList = document.querySelector("#prev-searches"); 
+  searchList.innerHTML = '';
+  
+  var storedSearches = JSON.parse(localStorage.getItem("searches"));
+  if (storedSearches !== null) {
+      
+      searches = storedSearches;
+
+    }
+
+    for (var i = searches.length - 1; i >= searches.length -3; i--) {
+      
+      
+      var theSearch = searches[i];
+  
+      var li = document.createElement("li");
+      li.textContent = theSearch;
+      li.className = "list-group-item";
+      searchList.appendChild(li);
+
+    }
+}
 
 $('#search-btn').click(function(){
 
   var theArtist = $("#search-bar").val();
-  var theCount = "5";
+  var theCount = "6";
   var queryURL ="https://cors-anywhere.herokuapp.com/https://api.deezer.com/artist/" + theArtist;
   
   console.log(queryURL)
+
+  searches.push(theArtist);
+  localStorage.setItem("searches", JSON.stringify(searches));
+  renderSearch()
+  
   // Reset API Data View
   $("#albums").html("");
   daCount = 0;
 
-  $.ajax({
-    url: queryURL,
-    crossDomain: true,
-    method: "GET",
-    contentType: "application/json",
-    dataType: "json",
-    headers: {
-      "accept": "application/json",
-      "Access-Control-Allow-Origin":"*"
-      }
-  }).then(function (Response) {
-    var newURL =
-      "https://cors-anywhere.herokuapp.com/https://api.deezer.com/artist/" +
-      Response.id +
-      "/albums&limit=" +
-      theCount;
+  // Main API Call to retrieve Artist ID from Deezer
+  $.getJSON( queryURL, function( Response ) {
+    
+    console.log(Response)
+    var newURL = "https://cors-anywhere.herokuapp.com/https://api.deezer.com/artist/" + Response.id + "/albums&limit=" + theCount;
 
-    $.ajax({
-      url: newURL,
-      crossDomain: true,
-      method: "GET",
-      contentType: "application/json",
-      dataType: "json",
-      headers: {
-        "accept": "application/json",
-        "Access-Control-Allow-Origin":"*"
-        }
-    }).then(function (newResponse) {
-
-
+    // Secondary API Call to retrieve Albums using the retrieved Artist ID 
+    $.getJSON( newURL, function( newResponse ) {
+      
+      // Looping over an array of Album tracks      
       for (var i = 0; i < newResponse.data.length; i++) {
         
         var listURL ="https://cors-anywhere.herokuapp.com/" + newResponse.data[i].tracklist;
 
-        $.ajax({
-          url: listURL,
-          crossDomain: true,
-          method: "GET",
-          contentType: "application/json",
-          dataType: "json",
-          headers: {
-            "accept": "application/json",
-            "Access-Control-Allow-Origin":"*"
-            }
-
-        }).then(function (listResponse) {
-          for (var t = 0; t < listResponse.data.length; t++) {                       
-            // console.log(listResponse.data[t].title);
-          }
-
-          renderList(newResponse, listResponse);
+        $.getJSON( listURL, function( listResponse ) {
+            // Call Render List to render the albums (newResponse) and the tracks for each album (listResponse) 
+            renderList(newResponse, listResponse);
 
         });
+
+        $('html, body').animate({
+          scrollTop: $("#albums").offset().top - 500
+
+        }, 1);
+
+        
       }
-
-     
-
     });
   });
 });
@@ -113,7 +85,8 @@ function renderList(albums, tracks) {
     // console.log(albums.data[i].title)
  
     var albumDiv = $("<div>");
-    albumDiv.addClass("column column-block")
+    albumDiv.addClass("large-auto track-toggle")
+    albumDiv.attr('id', daCount);
 
     var albumTitle = $("<div>");
     albumTitle.addClass("text-center album-title")
@@ -123,7 +96,7 @@ function renderList(albums, tracks) {
 
     var albumImg = $("<img>");
     albumImg.addClass("float-center album-img")
-    albumImg.attr("src",albums.data[daCount].cover_medium);
+    albumImg.attr("src",albums.data[daCount].cover_big);
 
     var theTitle = albums.data[daCount].title
     var theRelease = albums.data[daCount].release_date
@@ -136,39 +109,28 @@ function renderList(albums, tracks) {
 
     albumTitle.text(theTitle);
     albumRelease.text(theRelease);
-
-    
+  
     var trackList = $("<ul>");
 
-    // var trackList = $("<div>");
-    // trackList.html('<ul class="tracklist-' + daCount +  ' vertical menu accordion-menu" data-accordion-menu ></ul>')
-
-    trackList.addClass("vertical menu accordion-menu")
+    trackList.addClass("vertical menu accordion-menu album-" + daCount)
     trackHeaderHolder = $("<li>");
 
     trackHeader = $("<a>");
-    trackHeader.attr('id', 'Album' + daCount);
-    trackHeader.text("View Tracks");
+    // trackHeader.addClass("track-toggle")
+    // trackHeader.attr('id', daCount);
+    // trackHeader.text("View Tracks");
 
     trackHeaderHolder.append(trackHeader);
-
-    // anotherList =  $("<ul>").addClass('menu vertical nested');
-    // trackHeaderHolder.append(trackHeader, anotherList);
-    // $('.tracklist-' + daCount).append(trackHeaderHolder)
-
-    
+    $(trackList).append(trackHeaderHolder);
     $(albumDiv).append(trackList);
-    // $('.tracklist-1').append(trackHeaderHolder);
-    // $(trackHeaderHolder).append(trackHeader);
 
     for(var i = 0; i < tracks.data.length; i ++)
     {
       track = $("<li>");
-      track.addClass("hidden track-unit")
+      track.addClass("hidden track-unit unit-" + daCount)
       track.text(tracks.data[i].title);
       $(trackList).append(track);
     }
-
 
     daCount++
 
@@ -189,53 +151,34 @@ function renderList(albums, tracks) {
       }).then(function (response) {
         console.log(response);
     
+        
         document.getElementById("lyrics-text").innerHTML = response.lyrics.replace(
           new RegExp("\n", "g"),
           "<br>"
         );
+
+        var popup = new Foundation.Reveal($('#lyric-modal'));
+        popup.open();
+
       });
+
+
   })
 
 
+  $(document).on('click', '.track-toggle', function(){
+    
+    var albumID = this.id
 
+    if( $(this).hasClass("show"))
+    {
+      $(this).removeClass("show");
+      $(".unit-" + albumID).addClass("hidden");
+    }
+    else
+    {
+      $(this).addClass("show");
+      $(".unit-" + albumID).removeClass("hidden");
+    }  
 
-// var results = {
-//   // API results here
-//   q: [
-//     {
-//       // img: src="https://placekitten.com/200/200";
-//       name: "Nevermind",
-//       year: 1992,
-//       artist: "Nirvana",
-//       tracks: [
-//         {
-//           name: "Smells like teen spirit",
-//           track: 1,
-//         },
-//         {
-//           name: "Heart-shaped box",
-//           track: 2,
-//         },
-//       ],
-//     },
-//   ],
-// };
-
-// renderList(results);
-
-
-
-// albumTag.innerHTML = albums.map((album) => {
-//   var trackhtml = album.tracks
-//     .map((track) => `<li>${track.name}</li>`)
-//     .join("");
-//   return `
-//    <div class="cell small-4 album">
-//       <h4>${album.name}</h4>
-//       <h5>${album.year}</h5>
-//       <ul>
-//           ${trackhtml}
-//       </ul>
-//    </div>
-//    `;
-// });
+  });

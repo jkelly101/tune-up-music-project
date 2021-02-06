@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+  <head>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <title>Tune Up Music</title>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css" integrity="sha256-ogmFxjqiTMnZhxCqVmcqTvjfe1Y/ec4WaRj/aQPvn+I=" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation-float.min.css" integrity="sha256-4ldVyEvC86/kae2IBWw+eJrTiwNEbUUTmN0zkP4luL4=" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/sections.css" />
+    
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
+    <link href="css/mystyle.css" rel="stylesheet" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+
+    
+
+
+
+
+
+
+
+
+    
+  </head>
+
+  <body>
+
+
+  <header >
+   <div class="fixed">
+    <nav class="top-bar" data-topbar role="navigation">
+      <nav class="top-bar-left" data-topbar role="navigation">
+          <span class="inner-title"><span class="colored-title">Tune</span> Up</span>
+      </nav>
+    </nav> 
+  </div>
+
+  </header>
+
+  <div class="container">
+    <div class="text-center title-container top-head">     
+      <div class="head-wrapper">
+        <h2 class="text">
+          Search an Artist
+        </h2>
+        <div class="input-group text-center">
+          <input id="search-bar" class="input-group-field" type="text">
+          <div class="input-group-button">
+            <button id="search-btn" type="submit" class="button" value="Submit"><i class="fas fa-search"></i></button>
+          </div>
+        </div>
+        <div class="text-center">
+          <ul id="prev-searches" class="text-center">
+
+          </ul>
+        </div>
+      </div>
+    </div> 
+  </div>
+
+
+    <!-- Albums-->
+    <section class="discography">
+      <div class="grid-x grid-padding-x" id="albums">        
+        
+      </div>
+    </section>
+
+    <div class="reveal large" id="lyric-modal" data-reveal>
+      <p class="lead" id="lyrics-text"></p>
+      <button class="close-button" data-close aria-label="Close modal" type="button">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+
+
+    <!-- Footer-->
+    <footer class="footer">
+      <div class="container" id="footer-text">
+        Copyright © Tune Up Music 2021
+      </div>
+    </footer>
+
+    <!-- Compressed JavaScript -->
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.5.3/js/plugins/foundation.core.js"></script> 
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.5.3/js/foundation.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.5.3/js/plugins/foundation.reveal.js"></script> 
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.5.3/js/plugins/foundation.util.keyboard.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.5.3/js/plugins/foundation.util.triggers.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.5.3/js/plugins/foundation.util.mediaQuery.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.5.3/js/plugins/foundation.util.motion.js"></script>
+
+    <script>
+      $(document).foundation();
+    </script>
+    <script src="js/myscript.js"></script>
+  </body>
+</html>
