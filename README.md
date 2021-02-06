@@ -13,13 +13,18 @@ Tune Up is an app of simplicity that searches artist albums and lyrics. Our app 
 
 ## Screenshot
 
-![Screenshot](cover.png)
+![Screenshot](assets\img\cover.png)
 
 ## Built With
 
 *HTML
-*JS
+*JavaScript
 *CSS
 *JQuery
 *Ajax
 *APIs
+
+## Links
+Deployed: https://jkelly101.github.io/tune-up-music-project/myindex.html
+Presentation: https://docs.google.com/presentation/d/1Whg9HbWbd9L00XGn5reI9WAbOW6Xt7CPyQFLbU6vxoE/edit?usp=sharing
+
