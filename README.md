@@ -2,10 +2,10 @@
 
 ## Team Contributors
 
-*Jacob H.
-*Mollie D.
-*Ramya M.
-*Jen Kelly
+-Jacob H.
+-Mollie D.
+-Ramya M.
+-Jen Kelly
 
 ## About
 
@@ -17,12 +17,12 @@ Tune Up is an app of simplicity that searches artist albums and lyrics. Our app 
 
 ## Built With
 
-*HTML
-*JavaScript
-*CSS
-*JQuery
-*Ajax
-*APIs
+-HTML
+-JavaScript
+-CSS
+-JQuery
+-Ajax
+-APIs
 
 ## Links
 Deployed: https://jkelly101.github.io/tune-up-music-project/myindex.html
