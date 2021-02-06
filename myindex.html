@@ -5,133 +5,86 @@
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
     <title>Tune Up Music</title>
-    <!-- <link rel="stylesheet" href="css/foundation.css" /> -->
-    <!-- Compressed CSS -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css"
-      integrity="sha256-ogmFxjqiTMnZhxCqVmcqTvjfe1Y/ec4WaRj/aQPvn+I="
-      crossorigin="anonymous"
-    />
-        <!-- foundation-float.min.css: Compressed CSS with legacy Float Grid -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation-float.min.css" integrity="sha256-4ldVyEvC86/kae2IBWw+eJrTiwNEbUUTmN0zkP4luL4=" crossorigin="anonymous">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css" integrity="sha256-ogmFxjqiTMnZhxCqVmcqTvjfe1Y/ec4WaRj/aQPvn+I=" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation-float.min.css" integrity="sha256-4ldVyEvC86/kae2IBWw+eJrTiwNEbUUTmN0zkP4luL4=" crossorigin="anonymous">
     <link rel="stylesheet" href="css/sections.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
     <link href="css/mystyle.css" rel="stylesheet" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+
+    
+
+
+
+
+
+
+
+
+    
   </head>
 
   <body>
-    <header class="top-head">
-        <div class="container">
-          <div class="text-center">
-            <h1 class="title">Tune Up </br>Music</h1>
-            <h2 class="text">
-              Search for albums and lyrics by your favorite artists!
-            </h2>
-            <div class="container">
-                <input id="search-bar" class= "searchBtn" placeholder="Type to search..."/>
-                <!-- <button id="search-btn">Search</button> -->
-                <button type="button" class="button rounded bordered shadow secondary" id="search-btn">Search</button>
-              </div>
+
+
+  <header >
+   <div class="fixed">
+    <nav class="top-bar" data-topbar role="navigation">
+      <nav class="top-bar-left" data-topbar role="navigation">
+          <span class="inner-title"><span class="colored-title">Tune</span> Up</span>
+      </nav>
+    </nav> 
+  </div>
+
+  </header>
+
+  <div class="container">
+    <div class="text-center title-container top-head">     
+      <div class="head-wrapper">
+        <h2 class="text">
+          Search an Artist
+        </h2>
+        <div class="input-group text-center">
+          <input id="search-bar" class="input-group-field" type="text">
+          <div class="input-group-button">
+            <button id="search-btn" type="submit" class="button" value="Submit"><i class="fas fa-search"></i></button>
           </div>
         </div>
+        <div class="text-center">
+          <ul id="prev-searches" class="text-center">
+
+          </ul>
+        </div>
       </div>
-    </header>
+    </div> 
+  </div>
+
 
     <!-- Albums-->
     <section class="discography">
-      <div class="row  small-up-1 medium-up-2 large-up-4 " id="albums">
+      <div class="grid-x grid-padding-x" id="albums">        
         
-        <div class="columns column-block">
-          <img src="http://placehold.it/200" class="float-center album-img">
-          <div class="text-center" id="album-title">Album Name</div>
-          <div class="text-center" id="release-date">Release Date</div>
-          <ul class="vertical menu accordion-menu" data-accordion-menu id="track-list">
-             <li>
-              <a href="#">Tracks</a>
-              <ul class="menu vertical nested">
-                  <li>Track</li>
-                  <li>Track</li>
-                  <li>Track</li>
-              </ul>
-            </li> 
-          </ul>
-        </div>
-
-        <div class="columns column-block">
-          <img src="http://placehold.it/200" class="float-center album-img">
-          <div class="text-center" id="album-title">Album Name</div>
-          <div class="text-center" id="release-date">Release Date</div>
-          <ul class="vertical menu accordion-menu" data-accordion-menu id="track-list">
-             <li>
-              <a href="#">Tracks</a>
-              <ul class="menu vertical nested">
-                  <li>Track</li>
-                  <li>Track</li>
-                  <li>Track</li>
-              </ul>
-            </li> 
-          </ul>
-        </div>
-
-        <div class="columns column-block">
-          <img src="http://placehold.it/200" class="float-center album-img">
-          <div class="text-center" id="album-title">Album Name</div>
-          <div class="text-center" id="release-date">Release Date</div>
-          <ul class="vertical menu accordion-menu" data-accordion-menu id="track-list">
-             <li>
-              <a href="#">Tracks</a>
-              <ul class="menu vertical nested">
-                  <li>Track</li>
-                  <li>Track</li>
-                  <li>Track</li>
-              </ul>
-            </li> 
-          </ul>
-        </div>
-
-        <div class="columns column-block">
-          <img src="http://placehold.it/200" class="float-center album-img">
-          <div class="text-center" id="album-title">Album Name</div>
-          <div class="text-center" id="release-date">Release Date</div>
-          <ul class="vertical menu accordion-menu" data-accordion-menu id="track-list">
-             <li>
-              <a href="#">Tracks</a>
-              <ul class="menu vertical nested">
-                  <li>Track</li>
-                  <li>Track</li>
-                  <li>Track</li>
-              </ul>
-            </li> 
-          </ul>
-        </div>
       </div>
     </section>
-      
-    
 
-    <!-- Lyrics-->
-    <section class="container" id="lyrics-section">
-      <div class="row lyrics-container">
-        <h2 >Lyrics(Song Title)</h2>
-        <p class="small-10 medium-6 large-6 small-centered column" id="lyrics-text">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-        </br>
-        Inventore,sequi cum repellendus et quidem, exercitationem 
-      </br>  
-        cumque dolorum autem eligendi quo voluptatum quiveniam sit 
-      </br>  
-        dolores earum deleniti quis in voluptatibus impedit ducimus 
-      </br>  
-        deserunt animi quibusdam eos. Doloremque voluptas quae dolo
-      </br>  
-        rum officiis facere magnam vero placeat minima adipisci nam. 
-      </br>  
-        Sunt?
-        </p>
-      </div>
-    </section>
+    <div class="reveal large" id="lyric-modal" data-reveal>
+      <p class="lead" id="lyrics-text"></p>
+      <button class="close-button" data-close aria-label="Close modal" type="button">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+
 
     <!-- Footer-->
     <footer class="footer">
@@ -141,11 +94,15 @@
     </footer>
 
     <!-- Compressed JavaScript -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/js/foundation.min.js"
-      integrity="sha256-pRF3zifJRA9jXGv++b06qwtSqX1byFQOLjqa2PTEb2o="
-      crossorigin="anonymous"
-    ></script>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.5.3/js/plugins/foundation.core.js"></script> 
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.5.3/js/foundation.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.5.3/js/plugins/foundation.reveal.js"></script> 
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.5.3/js/plugins/foundation.util.keyboard.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.5.3/js/plugins/foundation.util.triggers.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.5.3/js/plugins/foundation.util.mediaQuery.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.5.3/js/plugins/foundation.util.motion.js"></script>
+
     <script>
       $(document).foundation();
     </script>

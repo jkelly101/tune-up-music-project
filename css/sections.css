@@ -3,28 +3,24 @@
 }
 
 #albums {
-  border: solid black;
+
   padding: 10px;
 }
 
-#lyrics-section {
-  border: solid gray;
-  background: gray;
-  color: white;
-  padding: 20px;
-}
 
 .album-title,
-.release-date {
-  font-weight: bold;
+.release-date 
+{
+  font-family: 'Work Sans', sans-serif;
 }
 
 .album-title {
-  font-size: 20px;
+  font-size: 1rem;
 }
 
+
 .release-date {
-  font-size: 18px;
+  font-size: 0.9rem;
 }
 
 footer {
@@ -39,9 +35,42 @@ footer {
 
 .album {
   margin: auto;
+
 }
+
 
 .hidden
 {
   display:none!important;
+}
+
+.vertical-menu li
+{
+  text-align:center;
+}
+
+.track-toggle {
+  position: relative;
+  transition: margin-top ease 1s;
+  -webkit-transition: margin-top ease 1s;
+}
+.track-toggle:hover {
+  margin-top: -30px;
+  cursor:pointer
+
+}
+
+.menu li 
+{
+  text-align:center;
+  font-weight:bold;
+  font-family: 'Work Sans', sans-serif;
+  padding:4px;
+}
+
+.menu
+{
+  max-height:300px;
+  overflow-y: auto;
+
 }
